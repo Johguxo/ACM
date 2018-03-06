@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    strin n;
+    string n;
 	
 	return 0;
 }
