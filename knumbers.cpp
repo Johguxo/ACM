@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+<<<<<<< HEAD
 vector <long long> knumbers;
 long long potencia[8] = {1,10,100,1000,10000,100000,1000000,10000000};
 
@@ -74,5 +75,28 @@ int main(){
         if(!cont) cout<<"no kaprekar numbers"<<endl;
         if(i != cant) cout<<endl;
     }    
+=======
+vector <int> knumbers;
+
+void numbers(){
+	int k,n,t;
+	string numero;
+	for(int i = 1;i <= 40010 ;i++){
+		numero = to_string(i);
+		t = numero.size()/2;
+		k = pow(i,2)/pow(10,t);
+		n = i-k*pow(10,t);
+		if(n + k == i){
+			knumbers.push_back(i);
+		}
+	}
+	for(int i = 0; i < knumbers.size() ;i++){
+		cout<<knumbers[i];
+	}
+}
+
+int main(){
+	numbers();
+>>>>>>> e5ad60001907cceeebc98dafa56551ce429949d5
 	return 0;
 }
