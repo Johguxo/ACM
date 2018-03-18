@@ -1,0 +1,94 @@
+#include<bits/stdc++.h>
+using namespace std;
+string suma(string a, string b){
+	string menor, mayor,res="";
+	if(a.size() >= b.size()){
+		menor = b;
+		mayor = a;
+	}
+	else{
+		menor = a;
+		mayor = b;
+	}
+	int i=mayor.size()-1;
+	int j=menor.size()-1;
+	int sum = 0,carry = 0 ,aux;
+	
+	while(i>=0){
+		if(j<0) aux = 0;
+		else aux = menor[j]-'0';
+		sum =  mayor[i] - '0' + aux + carry;
+		res = to_string(sum%10) + res;
+		carry = sum/10;
+		i--;
+		j--;
+	}
+	
+	if(carry) res= to_string(carry)+res ;
+	return res;	
+}
+string producto(string a, string b){
+	string menor, mayor,res="";
+    if(a == "0" || b == "0") return "0";
+	if(a.size() >= b.size()){
+		menor = b;
+		mayor = a;
+	}
+	else{
+		menor = a;
+		mayor = b;
+	}
+	
+	int i=mayor.size()-1;
+	int j=menor.size()-1;
+	
+	int pro = 0,carry = 0,auxi,auxj,sum;
+
+	while(j >= 0){
+		auxi = i;
+		auxj = j;
+		
+		pro = carry;
+		while(auxi < mayor.size() && auxj >= 0 ){
+			
+			pro += (mayor[auxi]-'0')*(menor[auxj]-'0');
+			auxi++;
+			auxj--;
+			
+		}
+		carry = pro/10;
+        res = to_string(pro%10) + res;
+	
+		if(i == 0) j--;
+		else i--;
+    }
+	if(carry) res = to_string(carry) + res ;	
+	return res;
+}
+int main(){
+	int n,;
+	string res = "",b,a;
+	cin>>n;
+	for(int i = 0; i <= n; i++){
+		cin>>a;
+		cin>>d;
+		cin>>k;
+		int sum = 0;
+		for(int j = 0; j < 10000; j++){
+			sum = d*j + sum;
+			if(sum <= k && k <= sum + d*(j+1)) {
+			div = k;
+			break;
+			}
+		}
+
+		int t = 1;
+		for(int j = 0;j < a.size(); j++){
+			pos = producto(a[j],to_string(t));
+			res = suma(res, pos);
+			t = div*t; 
+		}
+		cout<<res;
+	}
+	return 0;
+}
