@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long b = 0,s = 0,c = 0,bc,sc,cc,bs,ss,cs,bn,cn,sn,sol = 0,res = 0,cash;
+bool ham(long long a){
+	bn = a*b;
+	cn = a*c;
+	sn = a*s;
+	
+	bn -= bc;
+	cn -= cc;
+	sn -= sc;
+	
+	bn = max(bn,0LL);
+	cn = max(cn,0LL);
+	sn = max(sn,0LL);
+	
+	res += bn*bs;
+	res += sn*ss;
+	res += cn*cs;
+	
+	if(res <= cash) return true;
+	else return false;
+}
+
+
+int main(){
+	string n;
+	cin>>n;
+	for(int i = 0; i < n.size() ; i++){
+		if(n[i] == 'B') b++;
+		if(n[i] == 'S') s++;
+		if(n[i] == 'C') c++;
+	}
+	cin>>bc>>sc>>cc>>bs>>ss>>cs>>cash;
+	long long li = 0LL,ls = 100000000000000LL;
+	for(int i = 0 ; i <= 300 ;i++){
+		res = 0;
+		sol = (li+ls)/2;
+		if(ham(sol)) li = sol;
+		else ls = sol;
+	}
+	cout<<sol<<endl;
+	
+	return 0;
+}
